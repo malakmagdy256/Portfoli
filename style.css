@@ -1,0 +1,272 @@
+/* متغيرات الألوان الرئيسية المستخدمة في الموقع */
+:root{
+  --text:#000000;
+  --red:#ff2525;
+  --red2:#b91c1c;
+}
+
+/* Reset لجميع العناصر لإزالة الهوامش الافتراضية */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+/* تنسيق الصفحة بالكامل */
+body{
+  font-family:'Segoe UI',sans-serif;
+  color:#000;
+  background:linear-gradient(135deg,#ffffff,#f5f5f5,#ececec);
+}
+
+/* شريط التنقل العلوي */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  height:70px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 8%;
+  background:rgba(255,255,255,0.95);
+  border-bottom:1px solid #ddd;
+  z-index:1000;
+  backdrop-filter:blur(10px);
+}
+
+/* اسم اللوجو داخل الـ nav */
+nav h3{
+  color:var(--red2);
+}
+
+/* القائمة داخل الـ nav */
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:20px;
+}
+
+/* تنسيق الروابط */
+nav ul li a{
+  text-decoration:none;
+  color:#000000;
+  position:relative;
+  font-weight:600;
+}
+
+/* الخط المتحرك أسفل اللينكات */
+nav ul li a::after{
+  content:"";
+  position:absolute;
+  width:0%;
+  height:2px;
+  background:#b91c1c;
+  left:0;
+  bottom:-5px;
+  transition:0.3s;
+}
+
+/* تأثير ظهور الخط عند الـ hover */
+nav ul li a:hover::after{
+  width:100%;
+}
+
+/* قسم الـ Hero الرئيسي */
+.hero{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:120px 10%;
+  min-height:100vh;
+  gap:40px;
+}
+
+/* عنوان الـ Hero */
+.hero-text h1{
+  font-size:55px;
+  background:linear-gradient(45deg,#000,#8b0000,#b91c1c);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* وصف الـ Hero */
+.hero-text p{
+  margin-top:15px;
+  color:#000000;
+  font-size:18px;
+  font-weight:500;
+}
+
+/* زر الـ Hero */
+.hero-btn{
+  display:inline-block;
+  margin-top:25px;
+  padding:14px 35px;
+  border-radius:40px;
+  background:linear-gradient(45deg,#8b0000,#b91c1c,#111);
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+  cursor:pointer;
+  animation:pulse 2s infinite;
+  transition:0.3s;
+  box-shadow:0 0 15px #8b0000;
+}
+
+/* تأثير تكبير الزر عند المرور عليه */
+.hero-btn:hover{
+  transform:scale(1.08);
+}
+
+/* أنيميشن النبض الخاص بالزر */
+@keyframes pulse{
+  0%{box-shadow:0 0 10px #8b0000;}
+  50%{box-shadow:0 0 25px #b91c1c;}
+  100%{box-shadow:0 0 10px #8b0000;}
+}
+
+/* صورة الـ Hero */
+.hero img{
+  width:320px;
+  height:320px;
+  border-radius:50%;
+  object-fit:cover;
+  border:5px solid #8b0000;
+}
+
+/* جميع الـ sections */
+section{
+  padding:80px 10%;
+  opacity:0;
+  transform:translateY(30px);
+  transition:0.7s;
+}
+
+/* الشكل بعد ظهور الـ section */
+section.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* عناوين الأقسام */
+h2{
+  text-align:center;
+  margin-bottom:30px;
+  color:#b91c1c;
+  font-size:35px;
+}
+
+/* Grid خاصة بالمشاريع */
+.projects{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+/* كروت المشاريع */
+.card{
+  background:rgba(255,255,255,0.95);
+  padding:20px;
+  border-radius:20px;
+  border:1px solid #ddd;
+  opacity:0;
+  transform:translateY(40px);
+  transition:0.6s;
+  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+/* شكل الكارت بعد ظهوره */
+.card.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* تأثير الحركة عند الـ hover على الكارت */
+.card:hover{
+  transform:translateY(-10px) scale(1.03);
+}
+
+/* عنوان الكارت */
+.card h3{
+  color:#b91c1c;
+  margin-bottom:10px;
+}
+
+/* وصف الكارت */
+.card p{
+  color:#000000;
+  font-weight:500;
+}
+
+/* تنسيق النص داخل قسم About */
+#about p{
+  text-align:center;
+  color:#000000;
+  line-height:1.8;
+  font-size:18px;
+  font-weight:500;
+}
+
+/* حاوية السوشيال ميديا */
+.social-links{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+/* شكل أزرار السوشيال ميديا */
+.social-links a{
+  padding:10px 20px;
+  border-radius:25px;
+  text-decoration:none;
+  color:white;
+  transition:0.3s;
+  font-weight:bold;
+}
+
+/* ألوان كل منصة */
+.tiktok{background:#000;}
+.facebook{background:#8b0000;}
+.linkedin{background:#5a0000;}
+.instagram{background:linear-gradient(45deg,#8b0000,#111);}
+.whatsapp{background:#2d0000;}
+.Gmail{background:#b91c1c;}
+
+/* تأثير التكبير عند المرور على أيقونات السوشيال */
+.social-links a:hover{
+  transform:scale(1.1);
+}
+
+/* عرض الـ Scrollbar */
+::-webkit-scrollbar{
+  width:10px;
+}
+
+/* لون الجزء المتحرك من الـ Scrollbar */
+::-webkit-scrollbar-thumb{
+  background:#8b0000;
+}
+
+/* Responsive Design للشاشات الصغيرة */
+@media(max-width:900px){
+
+  /* ترتيب عناصر الـ Hero في الموبايل */
+  .hero{
+    flex-direction:column-reverse;
+    text-align:center;
+  }
+
+  /* تصغير حجم العنوان */
+  .hero-text h1{
+    font-size:42px;
+  }
+
+  /* تصغير الصورة */
+  .hero img{
+    width:260px;
+    height:260px;
+  }
+}
